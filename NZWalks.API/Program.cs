@@ -3,6 +3,7 @@ using NZWalks.API.Data;
 using NZWalks.API.Mappings;
 using AutoMapper;
 using NZWalks.API.Repository;
+using NZWalks.API.Models.Domain;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,8 @@ builder.Services.AddDbContext<NZWalksDbContext>(options =>
 );
 
 builder.Services.AddScoped<IWalkRepository, SQLWalkRepository>();
+builder.Services.AddScoped<IRegionRepository, SQLRegionRepository>();
+
 
 builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
 
