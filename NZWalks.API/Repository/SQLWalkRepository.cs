@@ -34,7 +34,7 @@ namespace NZWalks.API.Repository
             return existingWalk;
         }
 
-        public async Task<List<Walk>> GetAllAsync()
+        public async Task<List<Walk>> GetAllAsync(string? filterOn = null, string? filterQuery = null)
         {
             return await dbContext.Walks.Include("Difficulty").Include("Region").ToListAsync();
         }
